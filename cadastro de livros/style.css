@@ -1,0 +1,60 @@
+/* Defina a paleta de cores */
+:root {
+    --cor-fundo: #F5F5F5;
+    --cor-container: #ecf0ef;
+    --cor-botao-anterior: #0c0802;
+    --cor-botao-proximo: #060808;
+}
+
+/* Estilize o container */
+.container {
+    background-color: var(--cor-container);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Estilize os botões Anterior e Próximo */
+.anterior, .proximo {
+    background-color: var(--cor-botao-anterior);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.proximo {
+    background-color: var(--cor-botao-proximo);
+}
+
+/* Estilize os botões Adicionar Livro e Livros Cadastrados */
+button {
+    background-color: var(--cor-botao-anterior);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Adicione estilo para os campos de entrada de texto */
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+/* Estilize o cabeçalho */
+h1 {
+    color: var(--cor-botao-proximo);
+}
+
+/* Estilize a imagem do carrossel */
+img#carrosselImagem {
+    max-width: 300px;
+    max-height: 300px;
+}
+ 

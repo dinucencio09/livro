@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrado de livros</title>
+    <link rel="stylesheet" href="style.css">
+    <div class="container">
+        <div class="carrossel">
+    <style>
+        .carrossel {
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+        .anterior,
+        .proximo {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Livros</h1>
+    <input id="nomeLivro" placeholder="Nome" type="text">
+    <input id="autorLivro" placeholder="Autor" type="text">
+    <input id="anoLivro" placeholder="Ano" type="number">
+    <button onclick="adicionar()">Adicionar Livro</button>
+    <button onclick="mostrarLivros()">Livros Cadastrados</button>
+    <div class="carrossel">
+        <img id="carrosselImagem" src="" alt="Imagem do Carrossel">
+        <button class="anterior" id="anterior">Anterior</button>
+        <button class="proximo" id="proximo">Próxima</button>
+    </div>
+
+    <script>
+        let biblioteca = [];
+
+        function cadastro(nome, autor, ano) {
+            var livro = {
+                titulo: nome,
+                autor: autor,
+                ano: ano
+            };
+            biblioteca.push(livro);
+        }
+
+        function adicionar() {
+            let nome = document.getElementById('nomeLivro').value;
+            let autor = document.getElementById('autorLivro').value;
+            let ano = document.getElementById('anoLivro').value;
+            cadastro(nome, autor, ano);
+            carregar();
+        }
+
+        function mostrarLivros() {
+            console.log("Livros cadastrados:");
+
+            for (let i = 0; i < biblioteca.length; i++) {
+                console.log(`Livro ${i + 1}:`);
+            }
+
+            console.log(`Total de livros cadastrados: ${biblioteca.length}`);
+        }
+
+        let imgIndice = 0;
+        const IMAGENS = [
+            'https://images-na.ssl-images-amazon.com/images/I/91SZHBwqE5L._AC_UL232_SR232,232_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81ZDqOJY4BS._AC_UL160_SR160,160_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/61mzOtk0PEL._AC_UL160_SR160,160_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/A1u6iWYAlWL._AC_UL160_SR160,160_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/91EShRkyE2L._AC_UL160_SR160,160_.jpg',
+        ];
+        const prevButton = document.getElementById('anterior');
+        const nextButton = document.getElementById('proximo');
+
+        var IMG = document.getElementById('carrosselImagem');
+
+        function carregar() {
+            IMG.src = IMAGENS[imgIndice];
+        }
+
+        prevButton.addEventListener('click', () => {
+            imgIndice = (imgIndice - 1 + IMAGENS.length) % IMAGENS.length;
+            carregar();
+        });
+
+        nextButton.addEventListener('click', () => {
+            imgIndice = (imgIndice + 1) % IMAGENS.length;
+            carregar();
+        });
+
+        carregar();
+    </script>
+    </div>
+</div>
+</body>
+</html>
